@@ -38,11 +38,6 @@ class NBAStatsScraper():
             else:
                 points = "-"
             
-            tdStats = row.find_all("td", {"class": "fgm"})
-            if tdStats:
-                field_goals_made = tdStats[0].find(text=True)
-            else:
-                field_goals_made = "-"
         
             tdStats = row.find_all("td", {"class": "fg_pct"})
             if tdStats:
@@ -104,7 +99,7 @@ class NBAStatsScraper():
             else:
                 fouls = "-"
         
-            playerStats = [player_name, games_played, points, field_goals_made, field_goals_pct, three_point_pct, free_throw_pct, offensive_rebounds, deffensive_rebounds, rebounds, assists, steals, turnovers, fouls]
+            playerStats = [player_name, games_played, points, field_goals_pct, three_point_pct, free_throw_pct, offensive_rebounds, deffensive_rebounds, rebounds, assists, steals, turnovers, fouls]
             self.teamStats.append(playerStats)
             
             # Guardamos la foto del jugadores
@@ -119,7 +114,9 @@ class NBAStatsScraper():
                         picOutput.write(chunk)
 
     def data2csv(self, filename):
+        cabecera="Jugador, Partidos, Puntos, FG%, 3PT%, FT%, OffReb, DefReb, Rebotes, Asistencias, Recuperaciones, Perdidas"
         with open(filename, 'w', newline='') as csvFile:
             writer = csv.writer(csvFile)
+            writer.writerow([cabecera])
             for playerStats in self.teamStats:
                 writer.writerow(playerStats)

@@ -13,6 +13,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 
+
 from time import sleep
 
 s=Service(ChromeDriverManager().install())
@@ -32,13 +33,32 @@ sleep(2)
 
 """Selecciono el valor que quiero"""
 comboPosiciones =  Select(driver.find_element(By.NAME, 'POSITION'))
+todaspaginas=Select(driver.find_element(By.XPATH, '//*[@title="Page Number Selection Drown Down List"]'))
+
 
 sleep(2)
-comboPosiciones.select_by_visible_text('Guard')
-sleep(15)
-driver.close()
+guards=comboPosiciones.select_by_visible_text('Guard')
+sleep(5)
+
+sleep(2)
+todaspaginas.select_by_visible_text('All')
+sleep(5)
 
 
+sleep(2)
+forwards=comboPosiciones.select_by_visible_text('Forward')
+sleep(5)
+
+sleep(2)
+todaspaginas.select_by_visible_text('All')
+sleep(5)
 
 
+sleep(2)
+forwards=comboPosiciones.select_by_visible_text('Center')
+sleep(5)
+
+sleep(2)
+todaspaginas.select_by_visible_text('All')
+sleep(5)
 

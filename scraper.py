@@ -28,7 +28,7 @@ class NBAStatsScraper():
         # URL de la página web que contiene la información a descargar. Esta URL se forma con
         # dos parámetros que se pasan al inicializar la clase: el nombre del equipo y la
         # temporada
-        self.url = "https://www.nba.com/%s/stats?season=%s" % (team, season)
+        #self.url = "https://www.nba.com/%s/stats?season=%s" % (team, season)
         
         # Array donde guardamos la información que nos vamos a descargar de la página.
         # Cada elemento del array contiene la informción de un jugador.

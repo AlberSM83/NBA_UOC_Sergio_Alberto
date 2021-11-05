@@ -40,14 +40,14 @@ while season == '':
 # El nombre del fichero será equipo_temporada.csv
 output_file = "%s_%s.csv" % (team, season)
 
-#try:
-# Iniciaizamos la clase NBAStatsScraper
-scraper = NBAStatsScraper(team, season);
-# Cogemos los datos
-scraper.scrape();
-# Exportamos el dataset al fichero csv
-scraper.data2csv(output_file);
+try:
+    # Iniciaizamos la clase NBAStatsScraper
+    scraper = NBAStatsScraper(team, season);
+    # Cogemos los datos
+    scraper.scrape();
+    # Exportamos el dataset al fichero csv
+    scraper.data2csv(output_file);
 
-print("La información se ha guardado correctamente.")
-#except:
-#    print("Se ha procudido un error durante el proceso.")
+    print("La información se ha guardado correctamente.")
+except:
+    print("Se ha procudido un error durante el proceso.")
